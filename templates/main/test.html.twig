@@ -3,6 +3,9 @@
 {% block body %}
     <h1>Page de test mémore !</h1>
     <div>
+        <div>{{ mySerie.title }} {{ autreVar }}</div>
+        <div>{{ mySerie.title |raw }} {{ autreVar }}</div>
+        <br>
         <div>
             {{ "+1 year" | date("Y") }} <br>
             {{ "now" | date("Y") }}
