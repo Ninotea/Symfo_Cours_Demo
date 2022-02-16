@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
 
     <link rel="icon" href="{{ asset('img/icon.png') }}">
+
+    {% block extrastyles %} {% endblock %}
 
 </head>
 <body>
@@ -22,6 +23,16 @@
             <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo.svg') }}" alt="Séries !"></a></h1>
             {% include 'inc/nav.html.twig' %}
         </header>
+
+        {# read and display all flash messages #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         <main>
             {% block body %}{% endblock %}
         </main>
